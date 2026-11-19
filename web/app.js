@@ -2462,10 +2462,10 @@
   var history = { msgs: [], more: false, conv: null };
 
   var ICO = {
-    pdf:  { c: "#fee2e2", f: "#dc2626" }, doc: { c: "#dbeafe", f: "#2563eb" },
-    xls:  { c: "#dcfce7", f: "#16a34a" }, ppt: { c: "#ffedd5", f: "#ea580c" },
-    zip:  { c: "#fef3c7", f: "#d97706" }, img: { c: "#fae8ff", f: "#a21caf" },
-    txt:  { c: "#f1f5f9", f: "#64748b" }, def: { c: "#e2e8f0", f: "#475569" }
+    pdf:  { c: "rgba(255,77,79,.15)", f: "#FF4D4F" }, doc: { c: "rgba(41,182,246,.15)", f: "#29B6F6" },
+    xls:  { c: "rgba(76,211,138,.15)", f: "#4CD38A" }, ppt: { c: "rgba(255,159,28,.15)", f: "#FF9F1C" },
+    zip:  { c: "rgba(255,207,0,.15)", f: "#FFCF00" }, img: { c: "rgba(206,120,255,.15)", f: "#CE78FF" },
+    txt:  { c: "rgba(160,163,169,.15)", f: "#A0A3A9" }, def: { c: "rgba(160,163,169,.15)", f: "#A0A3A9" }
   };
   function icoKind(name) {
     var e = (name || "").split(".").pop().toLowerCase();
@@ -2568,13 +2568,13 @@
           '<div><div class="att-name">' + esc(mt.name || "文件") + '</div>' +
           '<div class="att-sub">点击下载（未缓存会自动从客户端取）</div></div></div>';
       } else if (mt && mt.kind === "emotion") {
-        body += '<div class="att"><div class="att-ico" style="background:#fef3c7">🙂</div>' +
+        body += '<div class="att"><div class="att-ico" style="background:rgba(255,207,0,.15)">🙂</div>' +
           '<div><div class="att-name">表情</div></div></div>';
       } else if (mt && mt.kind === "voice") {
-        body += '<div class="att"><div class="att-ico" style="background:#e0f2fe">🎤</div>' +
+        body += '<div class="att"><div class="att-ico" style="background:rgba(41,182,246,.15)">🎤</div>' +
           '<div><div class="att-name">语音消息</div></div></div>';
       } else if (mt && mt.kind === "video") {
-        body += '<div class="att"><div class="att-ico" style="background:#ede9fe">🎬</div>' +
+        body += '<div class="att"><div class="att-ico" style="background:rgba(206,120,255,.15)">🎬</div>' +
           '<div><div class="att-name">视频消息</div></div></div>';
       } else if (mt && mt.kind === "recalled") {
         body += '<div class="bubble sysmsg">该消息已撤回</div>';
