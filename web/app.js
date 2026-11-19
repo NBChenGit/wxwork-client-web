@@ -142,7 +142,7 @@
 
   /* ---------------- 路由 ---------------- */
   var PAGE_TITLE = { overview: "概览", conversations: "会话与聊天", mentions: "@我",
-    search: "全局搜索", compose: "发送测试", limits: "频率与安全",
+    search: "全局搜索", compose: "发送测试", newgroup: "建群 / 群管理", limits: "频率与安全",
     site: "站点配置", platform: "平台接入", nodes: "本机通道", tasks: "本机任务" };
 
   function show(page) {

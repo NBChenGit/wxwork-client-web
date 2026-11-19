@@ -90,11 +90,9 @@ footer.statusbar .mono{color:var(--text-muted);text-transform:none}
 .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
 .cols{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px}
-@media (max-width:1180px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.cols{grid-template-columns:1fr}}
-@media (max-width:900px){.body{grid-template-columns:60px 1fr}aside.nav{width:60px}.nav-title,.nav-head span,.nav-items button[data-page] span,.nav-head .chev{display:none}.nav-items button[data-page]{padding-left:10px;justify-content:center}.g4,.g2{grid-template-columns:1fr}
-  header.top::after{background:linear-gradient(90deg,var(--accent) 0 60px,transparent 60px)}
-  .nav-items button[data-page][aria-current="page"]::before{display:none}}
+@media (max-width:1180px){.g4,.g5{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.cols{grid-template-columns:1fr}}
 
 /* 状态标签：方块 + 左色条 */
 .pill{display:inline-flex;align-items:center;gap:6px;padding:0 8px 0 6px;border-radius:0;font-size:11px;font-weight:600;
@@ -116,6 +114,9 @@ footer.statusbar .mono{color:var(--text-muted);text-transform:none}
   padding-right:18px;clip-path:polygon(0 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%)}
 .btn.primary:hover{background:var(--accent-hover);color:var(--on-accent)}
 .btn.primary:focus-visible{outline-offset:-4px;outline-color:var(--on-accent)}
+.btn.danger{border-color:var(--danger);background:var(--danger-soft);color:var(--danger)}
+.btn.danger:hover{background:var(--danger);color:#fff;border-color:var(--danger)}
+.btn.danger[disabled]:hover{background:var(--danger-soft);color:var(--danger);border-color:var(--danger)}
 .btn.ghost{border-color:transparent;background:transparent;color:var(--text-muted)}
 .btn.ghost:hover{background:var(--surface-2);color:var(--accent);border-color:transparent}
 .btn.sm{height:24px;padding:0 8px;font-size:12px}
@@ -160,7 +161,12 @@ table.tbl tbody tr.tbl-empty:hover{background:none;box-shadow:none}
 .input,.select,.textarea{height:30px;border:1px solid var(--border-strong);border-radius:0;
   background:#0F1012;color:var(--text);padding:0 8px;font-family:inherit;font-size:13px;transition:border-color .16s}
 .input::placeholder,.textarea::placeholder{color:var(--text-faint)}
-.textarea{height:auto;min-height:88px;padding:8px;line-height:20px;resize:vertical}
+.textarea,textarea.input{height:auto;min-height:88px;padding:8px;line-height:20px;resize:vertical}
+textarea.input{min-height:60px}
+input[type=file]{color:var(--text-muted);font-size:12px}
+input[type=file]::file-selector-button{height:26px;margin-right:10px;padding:0 10px;border:1px solid var(--border-strong);
+  border-radius:0;background:var(--surface-2);color:var(--text);font-family:inherit;cursor:pointer;transition:border-color .16s,color .16s}
+input[type=file]::file-selector-button:hover{border-color:var(--accent);color:var(--accent)}
 .input:hover,.select:hover,.textarea:hover{border-color:#50545C}
 .input:focus,.select:focus,.textarea:focus{outline:none;border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
 .input.mono{font-family:var(--mono);font-size:12px}
@@ -211,7 +217,9 @@ table.tbl tbody tr.tbl-empty:hover{background:none;box-shadow:none}
   border-left:3px solid var(--accent);z-index:41;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.6);
   animation:drawer-in .22s ease-out}
 @keyframes drawer-in{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
-.drawer-h{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);background:#121315}
+.drawer-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:12px 14px;border-bottom:1px solid var(--border);background:#121315}
+.drawer-h > div:first-child{flex:1 0 calc(100% - 96px);min-width:0}
+.drawer-h > label{order:1;white-space:nowrap}
 .drawer-h h3{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:.04em}
 .drawer-tabs{display:flex;gap:2px;align-items:center;padding:0 14px;border-bottom:1px solid var(--border)}
 .drawer-tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 12px;border-radius:0;color:var(--text-muted);cursor:pointer;font-size:12px}
@@ -436,3 +444,8 @@ aside.nav{display:flex;flex-direction:column;padding:0;background:var(--surface)
 .ri-title { font-weight: 600; font-size: 14px; margin-bottom: 4px;
   display: flex; align-items: center; gap: 8px; }
 .ri-side { white-space: nowrap; }
+
+/* 窄屏：放最后，才能覆盖上面侧栏的定义 */
+@media (max-width:900px){.body{grid-template-columns:60px 1fr}aside.nav{width:60px}.nav-title,.nav-head span,.nav-items button[data-page] span,.nav-head .chev{display:none}.nav-items button[data-page]{padding-left:10px;justify-content:center}.g4,.g5,.g2{grid-template-columns:1fr}
+  header.top::after{background:linear-gradient(90deg,var(--accent) 0 60px,transparent 60px)}
+  .nav-items button[data-page][aria-current="page"]::before{display:none}}

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>企微助手</title>
-<link rel="stylesheet" href="app.css?v=20261119a">
+<link rel="stylesheet" href="app.css?v=20261119b">
 </head>
 <body>
 <div class="app">
@@ -118,7 +118,7 @@
             <div class="card metric click" id="cardTodayIn" title="点击查看今日收到的消息"><div class="k">今日收到</div><div class="v" id="mTodayIn">0</div><div class="n">来自他人的消息</div></div>
             <div class="card metric click" id="cardTodayOut" title="点击查看今日发出的消息"><div class="k">今日发出</div><div class="v" id="mTodayOut">0</div><div class="n" id="mTodayOutSub">本账号发出</div></div>
           </div>
-          <div class="grid g4">
+          <div class="grid g5">
             <div class="card metric click" id="cardArch"><div class="k">归档总量</div><div class="v" id="mArch">0</div><div class="n" id="mArchSub">覆盖 0 个会话</div></div>
             <div class="card metric click" id="cardGroups"><div class="k">群聊</div><div class="v" id="mGroups">0</div><div class="n" id="mGroupsSub">单聊 0</div></div>
             <div class="card metric click" id="cardActive"><div class="k">24h 活跃会话</div><div class="v" id="mActive">0</div><div class="n" id="mActiveSub">有消息往来</div></div>
@@ -350,7 +350,6 @@
                     <button class="btn" id="gmAdminAdd" disabled>设为管理员</button>
                     <button class="btn ghost" id="gmAdminDel" disabled>取消</button></div>
                   <div class="micro faint" style="margin-top:6px" id="gmAdminState"></div></div>
-              </div>
               <div class="field">
                 <label class="label">置顶消息</label>
                 <div class="row" style="gap:8px;flex-wrap:wrap">
@@ -364,6 +363,7 @@
               <div class="row" style="gap:8px">
                 <button class="btn ghost" id="gmQuit" disabled>退群</button>
                 <button class="btn danger" id="gmDismiss" disabled>解散群</button>
+              </div>
               </div>
 
               <div class="card-f" id="gmCapHint">能力取决于本机钩子：改名/公告/管理员需要客户端协议层支持。</div>
@@ -809,6 +809,6 @@
     <div class="modal-f"><button class="btn" id="modalCancel">取消</button><button class="btn primary" id="modalOk">确认</button></div>
   </div>
 </div>
-<script src="app.js?v=20261119a"></script>
+<script src="app.js?v=20261119b"></script>
 </body>
 </html>
